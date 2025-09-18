@@ -34,10 +34,10 @@ export const Navigation = () => {
               <Camera className="h-4 w-4" />
               <span>Identify</span>
             </a>
-            <a href="#achievements" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
+            <Link to="/achievements" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
               <Trophy className="h-4 w-4" />
               <span>Achievements</span>
-            </a>
+            </Link>
             <div className="flex items-center space-x-3">
               <Link to="/signin">
                 <Button variant="ghost" size="sm">
@@ -80,10 +80,10 @@ export const Navigation = () => {
                 <Camera className="h-4 w-4" />
                 <span>Identify</span>
               </a>
-              <a href="#achievements" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
+              <Link to="/achievements" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
                 <Trophy className="h-4 w-4" />
                 <span>Achievements</span>
-              </a>
+              </Link>
               <div className="flex flex-col space-y-2 mt-2">
                 <Link to="/signin">
                   <Button variant="ghost" size="sm" className="w-full justify-start">
