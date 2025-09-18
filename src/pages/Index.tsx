@@ -1,5 +1,5 @@
 import { Navigation } from "@/components/Navigation";
-import { HeroSection } from "@/components/HeroSection";
+import MoneyflowLandingPage from "@/components/ui/fin-tech-landing-page";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { PlantIdentificationDemo } from "@/components/PlantIdentificationDemo";
 import AIChat from "@/components/AIChat";
@@ -11,7 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <HeroSection />
+      <MoneyflowLandingPage />
       <FeaturesSection />
       <PlantIdentificationDemo />
       <AIChat />
