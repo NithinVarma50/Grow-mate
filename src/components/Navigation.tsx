@@ -38,19 +38,12 @@ export const Navigation = () => {
               <Trophy className="h-4 w-4" />
               <span>Achievements</span>
             </a>
-            <div className="flex items-center space-x-3">
-              <Link to="/signin">
-                <Button variant="ghost" size="sm">
-                  <User className="h-4 w-4 mr-2" />
-                  Sign In
-                </Button>
-              </Link>
-              <Link to="/signup">
-                <Button variant="hero" size="sm">
-                  Sign Up
-                </Button>
-              </Link>
-            </div>
+            <Link to="/signin">
+              <Button variant="hero" size="sm">
+                <User className="h-4 w-4 mr-2" />
+                Sign In
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
