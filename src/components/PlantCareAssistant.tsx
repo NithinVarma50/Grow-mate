@@ -831,8 +831,8 @@ const PlantCareAssistant: React.FC = () => {
               <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
                 <Leaf className="w-6 h-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-green-800 dark:text-green-200">
-                PlantCare
+              <h1 className="text-2xl font-bold text-green-800">
+                Grow mate AI
               </h1>
             </div>
 

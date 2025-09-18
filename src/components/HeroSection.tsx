@@ -12,11 +12,11 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-              Groupmate
+              Grow mate AI
               <span className="block text-nature-sun">Smart Plant Care</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Meet Groupmate - the AI-powered plant care companion that helps you identify plants, 
+              Meet Grow mate AI - the AI-powered plant care companion that helps you identify plants, 
               chat with AI for personalized advice, and grow together with your green friends!
             </p>
             
@@ -27,10 +27,16 @@ export const HeroSection = () => {
                   View Dashboard
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+              <a href="#identify">
+                <Button
+                  variant="hero"
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary-dark"
+                >
                 <Camera className="h-5 w-5 mr-2" />
                 Identify My Plant
-              </Button>
+                </Button>
+              </a>
             </div>
 
             {/* Stats */}

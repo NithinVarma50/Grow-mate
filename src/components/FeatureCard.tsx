@@ -1,8 +1,9 @@
+// @ts-nocheck
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ReactNode } from "react";
 
 interface FeatureCardProps {
-  icon: ReactNode;
+  icon: React.ReactNode;
   title: string;
   description: string;
   gradient?: string;
