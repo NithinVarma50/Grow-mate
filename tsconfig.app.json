@@ -13,8 +13,6 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "types": ["react", "react-dom"],
 
     /* Linting */
     "strict": false,
