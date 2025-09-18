@@ -1,7 +1,6 @@
-import { Component } from "@/components/ui/open-ai-codex-animated-background";
+import GrowmateLandingPage from "./fin-tech-landing-page";
 
 export default function DemoOne() {
-  return <Component />;
+  return <GrowmateLandingPage />;
 }
-
 
