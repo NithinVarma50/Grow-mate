@@ -12,11 +12,11 @@ export const HeroSection = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-              Groupmate
+              Grow mate AI
               <span className="block text-nature-sun">Smart Plant Care</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Meet Groupmate - the AI-powered plant care companion that helps you identify plants, 
+              Meet Grow mate AI - the AI-powered plant care companion that helps you identify plants, 
               chat with AI for personalized advice, and grow together with your green friends!
             </p>
             
