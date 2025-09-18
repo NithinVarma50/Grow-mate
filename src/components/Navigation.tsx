@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Leaf, Menu, User, Trophy, Camera, Home } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,14 +22,14 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#home" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
+            <Link to="/" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
               <Home className="h-4 w-4" />
               <span>Home</span>
-            </a>
-            <a href="#dashboard" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/dashboard" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
               <Leaf className="h-4 w-4" />
               <span>My Plants</span>
-            </a>
+            </Link>
             <a href="#identify" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors">
               <Camera className="h-4 w-4" />
               <span>Identify</span>
@@ -58,14 +59,14 @@ export const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-3 pt-4">
-              <a href="#home" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
+              <Link to="/" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
                 <Home className="h-4 w-4" />
                 <span>Home</span>
-              </a>
-              <a href="#dashboard" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
+              </Link>
+              <Link to="/dashboard" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
                 <Leaf className="h-4 w-4" />
                 <span>My Plants</span>
-              </a>
+              </Link>
               <a href="#identify" className="flex items-center space-x-2 text-foreground hover:text-primary transition-colors py-2">
                 <Camera className="h-4 w-4" />
                 <span>Identify</span>
