@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Camera, Smartphone, TrendingUp, Award, Droplets, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 export const HeroSection = () => {
@@ -20,13 +21,15 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button variant="default" size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+              <Link to="/dashboard">
+                <Button variant="default" size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full">
+                  <Smartphone className="h-5 w-5 mr-2" />
+                  View Dashboard
+                </Button>
+              </Link>
+              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
                 <Camera className="h-5 w-5 mr-2" />
                 Identify My Plant
-              </Button>
-              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                <Smartphone className="h-5 w-5 mr-2" />
-                View Dashboard
               </Button>
             </div>
 
