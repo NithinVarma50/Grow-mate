@@ -38,10 +38,19 @@ export const Navigation = () => {
               <Trophy className="h-4 w-4" />
               <span>Achievements</span>
             </a>
-            <Button variant="hero" size="sm">
-              <User className="h-4 w-4 mr-2" />
-              Sign In
-            </Button>
+            <div className="flex items-center space-x-3">
+              <Link to="/signin">
+                <Button variant="ghost" size="sm">
+                  <User className="h-4 w-4 mr-2" />
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/signup">
+                <Button variant="hero" size="sm">
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,10 +84,19 @@ export const Navigation = () => {
                 <Trophy className="h-4 w-4" />
                 <span>Achievements</span>
               </a>
-              <Button variant="hero" size="sm" className="mt-2">
-                <User className="h-4 w-4 mr-2" />
-                Sign In
-              </Button>
+              <div className="flex flex-col space-y-2 mt-2">
+                <Link to="/signin">
+                  <Button variant="ghost" size="sm" className="w-full justify-start">
+                    <User className="h-4 w-4 mr-2" />
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button variant="hero" size="sm" className="w-full">
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}
