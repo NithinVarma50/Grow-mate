@@ -12,7 +12,7 @@ export const Footer = () => {
                 <Leaf className="h-5 w-5 text-primary-foreground" />
               </div>
               <span className="text-lg font-bold bg-gradient-primary bg-clip-text text-transparent">
-                Smart Farm AI
+                Groupmate
               </span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -63,9 +63,9 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 Smart Farm AI. Made with 🌱 for plant lovers everywhere.
-          </p>
+            <p className="text-sm text-muted-foreground">
+              © 2024 Groupmate. Made with 🌱 for plant lovers everywhere.
+            </p>
         </div>
       </div>
     </footer>
