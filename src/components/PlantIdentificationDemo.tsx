@@ -2,10 +2,49 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Camera, Upload, Sparkles, Leaf, Droplets, Sun, Thermometer } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export const PlantIdentificationDemo = () => {
+  const cameraInputRef = useRef<HTMLInputElement | null>(null);
+  const galleryInputRef = useRef<HTMLInputElement | null>(null);
+  const [selectedImageUrl, setSelectedImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (selectedImageUrl) URL.revokeObjectURL(selectedImageUrl);
+    };
+  }, [selectedImageUrl]);
+
+  const handleFiles = useCallback((files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    const file = files[0];
+    if (!file.type.startsWith("image/")) return;
+    const url = URL.createObjectURL(file);
+    setSelectedImageUrl((prev) => {
+      if (prev) URL.revokeObjectURL(prev);
+      return url;
+    });
+    // TODO: send file to identification API when ready
+  }, []);
+
+  const onCameraChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    handleFiles(e.target.files);
+  }, [handleFiles]);
+
+  const onGalleryChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    handleFiles(e.target.files);
+  }, [handleFiles]);
+
+  const openCamera = useCallback(() => {
+    cameraInputRef.current?.click();
+  }, []);
+
+  const openGallery = useCallback(() => {
+    galleryInputRef.current?.click();
+  }, []);
+
   return (
-    <section className="py-20 bg-background">
+    <section id="identify" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -29,25 +68,58 @@ export const PlantIdentificationDemo = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Upload Area */}
-                <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer group">
-                  <div className="bg-primary/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Upload className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Upload Plant Photo</h3>
-                  <p className="text-muted-foreground mb-4">Drag & drop or click to select an image</p>
-                  <Button variant="outline">
-                    <Camera className="h-4 w-4 mr-2" />
-                    Choose Photo
-                  </Button>
+                <div
+                  className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer group"
+                  onClick={openGallery}
+                >
+                  {selectedImageUrl ? (
+                    <div className="space-y-4">
+                      <img
+                        src={selectedImageUrl}
+                        alt="Selected plant"
+                        className="mx-auto max-h-80 rounded-lg object-contain"
+                      />
+                      <div className="text-sm text-muted-foreground">Click to choose a different photo</div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="bg-primary/10 p-4 rounded-full w-fit mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                        <Upload className="h-8 w-8 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">Upload Plant Photo</h3>
+                      <p className="text-muted-foreground mb-4">Drag & drop or click to select an image</p>
+                      <Button variant="outline">
+                        <Camera className="h-4 w-4 mr-2" />
+                        Choose Photo
+                      </Button>
+                    </>
+                  )}
                 </div>
+
+                {/* hidden inputs */}
+                <input
+                  ref={cameraInputRef}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  className="hidden"
+                  onChange={onCameraChange}
+                />
+                <input
+                  ref={galleryInputRef}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={onGalleryChange}
+                />
 
                 {/* Quick Actions */}
                 <div className="grid grid-cols-2 gap-4">
-                  <Button variant="nature" className="h-12">
+                  <Button variant="nature" className="h-12" onClick={openCamera}>
                     <Camera className="h-4 w-4 mr-2" />
                     Take Photo
                   </Button>
-                  <Button variant="outline" className="h-12">
+                  <Button variant="outline" className="h-12" onClick={openGallery}>
                     <Upload className="h-4 w-4 mr-2" />
                     From Gallery
                   </Button>
