@@ -27,10 +27,16 @@ export const HeroSection = () => {
                   View Dashboard
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+              <a href="#identify">
+                <Button
+                  variant="hero"
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary-dark"
+                >
                 <Camera className="h-5 w-5 mr-2" />
                 Identify My Plant
-              </Button>
+                </Button>
+              </a>
             </div>
 
             {/* Stats */}
