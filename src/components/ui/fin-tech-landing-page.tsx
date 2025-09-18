@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, LogIn, UserPlus, Leaf, Sparkles, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface StatProps {
   label: string;
@@ -118,17 +119,28 @@ const GrowmateLandingPage = () => {
           <span className="font-inter text-xl font-semibold tracking-tight text-slate-900">Growmate AI</span>
         </div>
         <div className="hidden items-center gap-8 md:flex">
-          {['Features', 'Solutions', 'Pricing', 'Resources'].map((item) => (
-            <a key={item} href="#" className="text-sm text-slate-600 hover:text-slate-900">{item}</a>
+          {[
+            { label: 'Features', to: '#' },
+            { label: 'Solutions', to: '#' },
+            { label: 'Pricing', to: '#' },
+            { label: 'Resources', to: '#' },
+          ].map((item) => (
+            <a key={item.label} href={item.to} className="text-sm text-slate-600 hover:text-slate-900">{item.label}</a>
           ))}
+          <Link to="/achievements" className="text-sm text-slate-600 hover:text-slate-900">
+            Achievements
+          </Link>
         </div>
         <div className="hidden gap-2 md:flex">
-          <button className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-slate-700 hover:bg-white">
+          <Link to="/signin" className="flex items-center gap-1 rounded-full px-4 py-2 text-sm text-slate-700 hover:bg-white">
             <LogIn className="h-4 w-4" /> Login
-          </button>
-          <SoftButton>
+          </Link>
+          <Link
+            to="/signup"
+            className="rounded-full px-5 py-2.5 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2 bg-emerald-900 text-white hover:bg-emerald-800 focus:ring-emerald-700"
+          >
             <UserPlus className="mr-1 h-4 w-4" /> Get Started
-          </SoftButton>
+          </Link>
         </div>
       </nav>
 
@@ -148,9 +160,12 @@ const GrowmateLandingPage = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <SoftButton>
+            <Link
+              to="/signup"
+              className="rounded-full px-5 py-2.5 text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2 bg-emerald-900 text-white hover:bg-emerald-800 focus:ring-emerald-700"
+            >
               Start Free Trial <ArrowUpRight className="ml-1 inline h-4 w-4" />
-            </SoftButton>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-8 pt-2 md:max-w-sm">
